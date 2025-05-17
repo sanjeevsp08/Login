@@ -1,0 +1,49 @@
+const mongoose =require('mongoose');
+const LoginSchema = new mongoose.Schema({
+    username:{
+        type:String,
+        required:true,
+        trim:true   
+    },
+    gender:{
+        type:String,
+        required:true,
+        enum:['Male','Female']
+    },
+    age:{
+        type:Number,
+        required:true,
+        min:18,
+    },
+    phone:{
+        type:String,
+        required:true,
+        trim:true   
+    },
+    dateOfBirth:{
+        type:Date,
+        required:true
+    },
+    password:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    email:{
+        type:String,
+        required:true,
+        trim:true
+    },
+    address:{
+        type:String,
+        required:true,
+        trim:true   
+
+    },
+    createdAt:{
+        type:Date,
+        default:Date.now
+    },  
+ }
+);
+module.exports = mongoose.model('Login', LoginSchema);
